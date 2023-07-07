@@ -17,14 +17,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return rank + " of " + suit;
+        return rank.toString() + " of " + suit.toString();
     }
-}
-
-enum Rank {
-    ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING
-}
-
-enum Suit {
-    CLUBS, DIAMONDS, HEARTS, SPADES
 }

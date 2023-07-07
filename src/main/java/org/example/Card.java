@@ -5,6 +5,8 @@ public class Card {
     private Suit suit;
 
     public Card(Rank rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
     }
 
     public Rank getRank() {
@@ -15,8 +17,11 @@ public class Card {
         return suit;
     }
 
+
     @Override
     public String toString() {
-        return rank.toString() + " of " + suit.toString();
+        return getRank().toString() + " of " + getSuit().toString();
     }
+
+
 }

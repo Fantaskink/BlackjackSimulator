@@ -58,18 +58,22 @@ public class Game {
 
     public void dealPlayer() {
         player.addCardToHand(dealer.drawCardFromShoe());
+        player.getHand().updateValue();
     }
 
     public void dealDealer() {
+
         dealer.addCardToHand(dealer.drawCardFromShoe());
+        dealer.getHand().updateValue();
     }
 
     public void printHands() {
         System.out.println("Your hand:");
         player.getHand().printHand();
-        System.out.println("Your hand value: " + player.getHandValue());
+        System.out.println("Your hand value: " + player.getHandValue() + "\n");
 
         System.out.println("Dealer's hand:");
         dealer.getHand().printHand();
+        System.out.println("Dealer's hand value: " + dealer.getHandValue() + "\n");
     }
 }

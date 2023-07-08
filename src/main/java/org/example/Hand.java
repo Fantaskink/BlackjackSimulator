@@ -38,7 +38,7 @@ public class Hand {
                     value += 11;
                 }
             } else {
-                value += card.getRank().ordinal();
+                value += card.getRank().getValue();
             }
         }
         return value;
@@ -54,7 +54,7 @@ public class Hand {
 
     public void printHand() {
         StringBuilder stringBuilder = new StringBuilder();
-        getCards().forEach(card -> stringBuilder.append(card.toString() + "\n"));
+        getCards().forEach(card -> stringBuilder.append("\n" + card.toString()));
         System.out.println(stringBuilder);
     }
 }

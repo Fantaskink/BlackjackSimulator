@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.List;
+
 public class Dealer {
     private Hand hand;
     private Shoe shoe;
@@ -23,5 +25,9 @@ public class Dealer {
 
     public void addCardToHand(Card card) {
         hand.addCard(card);
+    }
+
+    public void addCardsToShoe(List<Card> cards) {
+        shoe.getCards().addAll(cards);
     }
 }

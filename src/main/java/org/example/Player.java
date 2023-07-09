@@ -1,31 +1,62 @@
 package org.example;
 
 public class Player {
-    public Hand getHand() {
-        return hand;
+    private Hand mainHand;
+    private Hand splitHand;
+    private int chips;
+
+    private Boolean hasSplit;
+
+    public Hand getMainHand() {
+        return mainHand;
     }
 
-    private Hand hand;
-    private int chips;
+    public Hand getSplitHand() {
+        return splitHand;
+    }
+
+    public Boolean getHasSplit() {
+        return hasSplit;
+    }
 
     public int getChips() {
         return chips;
     }
 
     public Player(int chips) {
-        this.hand = new Hand();
+        this.mainHand = new Hand();
+        this.splitHand = new Hand();
         this.chips = chips;
+        this.hasSplit = false;
     }
 
-    public int getHandValue() {
-        return hand.getValue();
+    public int getMainHandValue () {
+        return mainHand.getValue();
+    }
+    public int getSplitHandValue () {
+        return splitHand.getValue();
     }
 
-    public void addCardToHand(Card card) {
-        hand.addCard(card);
+    public void addCardToMainHand(Card card) {
+        mainHand.addCard(card);
+    }
+
+    public void addCardToSplitHand(Card card) {
+        splitHand.addCard(card);
     }
 
     public void addChips(int chips) {
         this.chips += chips;
+    }
+
+    public void removeChips(int chips) {
+        this.chips -= chips;
+    }
+
+    public void splitHand() {
+        splitHand.addCard(mainHand.getCards().remove(1));
+        hasSplit = true;
+        mainHand.updateValue();
+        splitHand.updateValue();
     }
 }

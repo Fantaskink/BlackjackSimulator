@@ -48,6 +48,19 @@ public class Hand {
         return value;
     }
 
+    public Boolean hasBust() {
+        if (getValue() > 21) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void clearHand() {
+        cards.clear();
+    }
+
     public int getNumberOfCards() {
         return getCards().size();
     }
@@ -56,5 +69,16 @@ public class Hand {
         StringBuilder stringBuilder = new StringBuilder();
         getCards().forEach(card -> stringBuilder.append("\n" + card.toString()));
         System.out.println(stringBuilder);
+    }
+
+    public void printHandWithHiddenCard() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("\n" + getCards().get(0).toString());
+        stringBuilder.append("\n" + "Hidden Card");
+        System.out.println(stringBuilder);
+    }
+
+    public Boolean hasBlackjack() {
+        return getNumberOfCards() == 2 && getValue() == 21;
     }
 }

@@ -7,13 +7,22 @@ public class Hand {
     public void setValue(int value) {
         this.value = value;
     }
-
     private int value;
-    private List<Card> cards;
+    private final List<Card> cards;
+    private Boolean standed;
 
     public Hand() {
         this.value = 0;
         this.cards = new ArrayList<>();
+        this.standed = false;
+    }
+
+    public Boolean getStanded() {
+        return standed;
+    }
+
+    public void setStanded(Boolean hasStanded) {
+        this.standed = hasStanded;
     }
 
     public void updateValue() {
@@ -49,12 +58,11 @@ public class Hand {
     }
 
     public Boolean hasBust() {
-        if (getValue() > 21) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return getValue() > 21;
+    }
+
+    public Boolean hasSoftSeventeen() {
+        return getValue() == 17 && getCards().stream().anyMatch(card -> card.getRank() == Rank.ACE);
     }
 
     public void clearHand() {

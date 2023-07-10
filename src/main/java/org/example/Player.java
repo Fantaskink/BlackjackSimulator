@@ -19,6 +19,10 @@ public class Player {
         return hasSplit;
     }
 
+    public void setHasSplit(Boolean hasSplit) {
+        this.hasSplit = hasSplit;
+    }
+
     public int getChips() {
         return chips;
     }
